@@ -21,6 +21,10 @@
   font-weight: 500;
 }
 
+.product-list li {
+  cursor: pointer;
+}
+
 .product-item {
   font-size: 16px;
   cursor: pointer;

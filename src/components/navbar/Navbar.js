@@ -4,6 +4,7 @@ import { IoCallOutline } from "react-icons/io5";
 import { NAVBAR_ITEMS, NAVBAR_OPTIONS } from "../../static";
 import navLogo from "../../assets/images/nav-logo.svg";
 import { IoIosSearch } from "react-icons/io";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
@@ -34,7 +35,9 @@ function Navbar() {
         <div className="container">
           <div className="nav-all">
             <div className="nav-logo">
-              <img src={navLogo} alt="" />
+              <NavLink to={"/"}>
+                <img src={navLogo} alt="" />
+              </NavLink>
             </div>
             <div className="nav-input">
               <input type="text" placeholder="Search For items..." />
@@ -47,10 +50,12 @@ function Navbar() {
             </div>
             <ul className="navbar-list">
               {NAVBAR_OPTIONS?.map((el) => (
-                <li key={el.id} className="navbar-items">
-                  {el.icon}
-                  {el.title}
-                </li>
+                <NavLink to={el?.url}>
+                  <li key={el.id} className="navbar-items">
+                    {el.icon}
+                    {el.title}
+                  </li>
+                </NavLink>
               ))}
             </ul>
           </div>

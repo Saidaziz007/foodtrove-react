@@ -12,12 +12,26 @@ const API_URL = "https://fakestoreapi.com/products/";
 function Products() {
   const [data, setData] = useState([]);
   const [count, setCount] = useState(5);
+  const [categories, setCategories] = useState([]);
+  const [categoryValue, setCategoryValue] = useState("");
+
   useEffect(() => {
     axios
-      .get(`${API_URL}?limit=${count}`)
+      .get(`${API_URL}/categories`)
+      .then((res) => setCategories(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    const url =
+      categoryValue === ""
+        ? `${API_URL}?limit=${count}`
+        : `${API_URL}/category/${categoryValue}?limit=${count}`;
+    axios
+      .get(url)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
-  }, [count]);
+  }, [count, categoryValue]);
   if (!data) {
     return <div>Loading...</div>;
   }
@@ -50,21 +64,19 @@ function Products() {
       </div>
     </div>
   ));
+  let caterogyItem = categories?.map((el, inx) => (
+    <li onClick={() => setCategoryValue(el)} key={inx}>
+      {el}
+    </li>
+  ));
   return (
     <section className="product">
       <div className="container">
         <div className="product-top">
           <h1>Popular Products</h1>
           <ul className="product-list">
-            {PRODUCT_ITEMS?.map((el) => (
-              <li
-                key={el.id}
-                style={{ color: el.color }}
-                className="product-item"
-              >
-                {el.title}
-              </li>
-            ))}
+            <li onClick={() => setCategoryValue("")}>All</li>
+            {caterogyItem}
           </ul>
         </div>
         <div className="product-bottom">

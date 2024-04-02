@@ -1,0 +1,73 @@
+.admin-all {
+  padding-top: 170px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.admin-left {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.admin-left h1 {
+  color: #212529;
+  font-size: 40px;
+}
+
+.admin-info {
+  background-color: rgba(233, 233, 233, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  padding: 30px;
+  border-radius: 10px;
+  margin-top: 6px;
+}
+
+.admin-info-1 {
+  text-align: center;
+}
+
+.admin-info-1 h1 {
+  color: red;
+}
+
+.admin-info-1 span {
+  color: grey;
+  font-size: 25px;
+}
+
+.admin-info-1 p {
+  color: black;
+  font-weight: 600;
+}
+
+.admin-wrapper {
+  padding-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding-bottom: 50px;
+}
+
+.admin-card {
+  padding: 20px;
+  background-color: rgba(233, 233, 233, 1);
+  text-align: center;
+  border-radius: 10px;
+}
+
+.admin-card svg {
+  color: rgba(59, 183, 126, 1);
+  font-size: 35px;
+}
+
+.admin-card h1 {
+  color: #212529;
+  font-size: 20px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}

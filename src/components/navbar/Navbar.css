@@ -67,6 +67,11 @@ header {
   list-style: none;
 }
 
+.navbar-list a {
+  color: black;
+  text-decoration: none;
+}
+
 .navbar-items {
   display: flex;
   align-items: center;
